@@ -21,22 +21,25 @@
 
 <body  class="">
 
-  <div class="container">
+  <div class="container"> 
+  <a class="logo">Escola <span class="lite">Clementina Lona Costa</span></a>
+  
 
-    <form class="login-form" method="post" action="verificar_senha_adm.php">
+
+    <form class="login-form" method="post"  id="jsonForm" action="verificar_senha_adm.php">
       <div class="login-wrap">
+       
+          <center>Administrador</center>
         <p class="login-img"><i class="icon_lock_alt"></i></p>
         <div class="input-group">
           <span class="input-group-addon"><i class="icon_profile"></i></span>
-          <input type="text" class="form-control" placeholder="Usuario" name="usuario" autofocus>
+          <input type="text" class="form-control" placeholder="Usuário" name="usuario" autofocus>
         </div>
         <div class="input-group">
           <span class="input-group-addon"><i class="icon_key_alt"></i></span>
           <input type="password" class="form-control" placeholder="Senha" name="senha" >
         </div>
-        <label class="checkbox">
-                <span class="pull-right"> <a href="#"> Esqueceu a senha?</a></span>
-            </label>
+       
         <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
       </div>
     </form>
@@ -47,7 +50,33 @@
    background-image: url("login.png");
 }
 </style>
+
 </body>
+<link href="css/jquery.growl.css" rel="stylesheet" />
+
+<script src="js/jquery.js"></script>
+<script src="js/jquery.form.js"></script>
+<script src="js/jquery.growl.js"></script>
+      <script src="js/bootstrap-typeahead.js"></script>
+<script>
+$(document).ready(function() { 
+    // bind form using ajaxForm 
+    $('#jsonForm').ajaxForm({ 
+        // dataType identifies the expected content type of the server response 
+        dataType:  'json', 
+ 
+        // success identifies the function to invoke when the server response 
+        // has been received 
+        success:   function(data){
+            if (data.status==1){
+              document.location =  'inicio_adm.php';
+            }else{
+              $.growl.error({ message: data.msg });
+            }
+        } 
+    })
+  }); 
+    </script>
 
 
 </html>

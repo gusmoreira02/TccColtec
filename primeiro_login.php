@@ -33,21 +33,16 @@
   <link href="css/xcharts.min.css" rel=" stylesheet">
 <?php
 include('conexao.php');
-session_start();
 
-
- //$executa1 = $db->prepare("SELECT * FROM usuario WHERE usuario=:usuario");
- //$executa1->bindParam (':usuario',$_SESSION['usuario']);
- //$linha1 = $executa1->fetch(PDO::FETCH_OBJ);
-  //if ($linha1->login_primeira!= 1) {
-  //	header("location:  menu_pais.php");
-  //	exit;
-  	# code...
-  //}
- 
+$senha = $_POST['senha'];
+$csenha = $_POST['csenha'];
+   $senha_criptografada = criptografia($_POST['senha']);
+    $senha_criptografada1 = criptografia($_POST['csenha']);
+    session_start();
+   if ($senha_criptografada==$senha_criptografada1){
 $executa = $db->prepare("UPDATE responsavel SET senha=:senha WHERE cod_responsavel=:cod_responsavel");
 $executa->bindParam (':cod_responsavel', $_SESSION['cod_responsavel']);
-$executa->bindParam (':senha', $_POST['senha']);
+$executa->bindParam (':senha', $senha_criptografada1);
 
 
 $resultado = $executa->execute();
@@ -57,10 +52,10 @@ if ($executa->rowCount()==1) {
 	$resultado = $executa->execute();
 	$_SESSION['login_primeira']=2;
 
-
+}
 }else {
     echo 'Nenhum dado alterado';
 }
-header("location: menu_pais.php");
+header("location: inicio_responsavel.php");
 ?>
 

@@ -26,7 +26,7 @@
 }
 
 .chats .by-me .chat-content{
-	margin-left: 60px;
+
 	position: relative; 
 	background: #fff; 
 	border: 1px solid #ddd;
@@ -75,7 +75,7 @@
 }
 
 .chats .by-other .chat-content{
-	margin-right: 60px;
+	
 	position: relative; 
 	background: #fff; 
 	border: 1px solid #ddd;

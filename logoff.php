@@ -4,4 +4,4 @@ $_SESSION['acesso_liberado'] = 0;
   unset($_SESSION['acesso_liberado']);
   session_destroy();
 
-        header("Location: login.html");
+        header("Location: pagina_inicial_offline.php");

@@ -1038,7 +1038,6 @@ ul.sidebar-menu li.active a i {
 
     display: inline-block;
 
-    margin-top: 60px;
 
     padding: 15px;
 
@@ -2546,7 +2545,7 @@ div[data-role="editor-toolbar"] {
 
 .chats .by-me .chat-content{
 
-	margin-left: 60px;
+	margin-right: 60px;
 
 	position: relative;
 
@@ -2644,7 +2643,7 @@ div[data-role="editor-toolbar"] {
 
 .chats .by-other .chat-content{
 
-	margin-right: 60px;
+	margin-left: 60px;
 
 	position: relative;
 
@@ -9902,4 +9901,11 @@ span.customSelect.changed {
 
 #sendmessage.show, #errormessage.show, .show {
 	display:block;
+}
+
+
+
+/* Gustavo */
+.dependente {
+    cursor: pointer;
 }

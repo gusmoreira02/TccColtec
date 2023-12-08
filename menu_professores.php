@@ -1,9 +1,9 @@
 <?php
 include ("conexao.php");
-include ("seguranca.php");
+include ("seguranca_prof.php");
 
 if ($_SESSION['login_primeira']==1){
-	header("Location: primeiro_login_form.php");
+	header("Location: primeiro_login_form_prof.php");
 	exit;
 }
 
@@ -77,95 +77,24 @@ if ($_SESSION['login_primeira']==1){
           </li>
           <!-- task notificatoin end -->
           <!-- inbox notificatoin start-->
-          <li id="mail_notificatoin_bar" class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <i class="icon-envelope-l"></i>
-                            <span class="badge bg-important">5</span>
-                        </a>
-            <ul class="dropdown-menu extended inbox">
-              <div class="notify-arrow notify-arrow-blue"></div>
-              <li>
-                <p class="blue">You have 5 new messages</p>
-              </li>
-              <li>
-                <a href="#">
-                                    <span class="photo"><img alt="avatar" src="./img/avatar-mini.jpg"></span>
-                                    <span class="subject">
-                                    <span class="from">Greg  Martin</span>
-                                    <span class="time">1 min</span>
-                                    </span>
-                                    <span class="message">
-                                        I really like this admin panel.
-                                    </span>
-                                </a>
-              </li>
-              <li>
-                <a href="#">
-                                    <span class="photo"><img alt="avatar" src="./img/avatar-mini2.jpg"></span>
-                                    <span class="subject">
-                                    <span class="from">Bob   Mckenzie</span>
-                                    <span class="time">5 mins</span>
-                                    </span>
-                                    <span class="message">
-                                     Hi, What is next project plan?
-                                    </span>
-                                </a>
-              </li>
-              <li>
-                <a href="#">
-                                    <span class="photo"><img alt="avatar" src="./img/avatar-mini3.jpg"></span>
-                                    <span class="subject">
-                                    <span class="from">Phillip   Park</span>
-                                    <span class="time">2 hrs</span>
-                                    </span>
-                                    <span class="message">
-                                        I am like to buy this Admin Template.
-                                    </span>
-                                </a>
-              </li>
-              <li>
-                <a href="#">
-                                    <span class="photo"><img alt="avatar" src="./img/avatar-mini4.jpg"></span>
-                                    <span class="subject">
-                                    <span class="from">Ray   Munoz</span>
-                                    <span class="time">1 day</span>
-                                    </span>
-                                    <span class="message">
-                                        Icon fonts are great.
-                                    </span>
-                                </a>
-              </li>
-              <li>
-                <a href="#">See all messages</a>
-              </li>
-            </ul>
-          </li>
-          <!-- inbox notificatoin end -->
-          <!-- alert notification start-->
           
-          <!-- alert notification end-->
-          <!-- user login dropdown start-->
           <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="profile-ava">
-                                <img alt="" src="img/Victor.jpg">
-                            </span>
-                            <span class="username">Victor G Tidre</span>
+                          
+                            <span class="username"><?php echo $_SESSION['usuario'] ; ?></span>
                             <b class="caret"></b>
                         </a>
             <ul class="dropdown-menu extended logout">
               <div class="log-arrow-up"></div>
-              <li class="eborder-top">
-                <a href="#"><i class="icon_profile"></i> Meu Perfil</a>
-              </li>
-              <li>
-                <a href="#"><i class="icon_mail_alt"></i> Caixa de Entrada</a>
-              </li>
+            
                             <li>
-                <a href="#"><i class="icon_adjust-horiz"></i> Configurações</a>
+                <a href="configuracao_prof.php"><i class="icon_adjust-horiz"></i> Configurações</a>
+              </li>
+                         <li>
+                <a href="configuracao_prof.php#senha"><i class="icon_adjust-horiz"></i> Alterar senha</a>
               </li>
               <li>
-                <a href="login.html"><i class="icon_key_alt"></i> Log Out</a>
+                <a href="logoff.php"><i class="icon_key_alt"></i> Log Out</a>
               </li>
               <li>
             </ul>
@@ -175,54 +104,32 @@ if ($_SESSION['login_primeira']==1){
         <!-- notificatoin dropdown end-->
       </div>
     </header>
-    <!--header end-->
-
-    <!--sidebar start-->
+   
     <aside>
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu">
           <li class="active">
-            <a class="" href="menu_pais.php">
-                          <i class="icon_house_alt"></i>
-                          <span>Home</span>
+            <a class="" href="inicio_prof.php">
+                          <i class="glyphicon glyphicon-envelope"></i>
+                          <span>Enviar Parecer</span>
                       </a>
           </li>
-          <li class="sub-menu">
-            <a href="javascript:;" class="">
+          
+          <li class="active">
+            <a class="" href="mensagem_prof.php">
                           <i class="icon_document_alt"></i>
                           <span>Mensagens</span>
-                          <span class="menu-arrow arrow_carrot-right"></span>
-                      </a>
-            <ul class="sub">
-              <li><a class="" href="form_component.html">Enviar Mensagem</a></li>
-              <li><a class="" href="form_validation.html">Mensagens recebidas</a></li>
-            </ul>
+                          </a>
+                          </li>
+                        
+                    
         </ul>
         <!-- sidebar menu end-->
       </div>
     </aside>
     <!--sidebar end-->
 
-    <!--main content start-->
-    <section id="main-content">
-      <section class="wrapper">
-        <!--overview start-->
-        <div class="row">
-          <div class="col-lg-12">
-            <h3 class="page-header"><i class="fa fa-laptop"></i> Home</h3>
-            <ol class="breadcrumb">
-              <li><i class="fa fa-home"></i><a href="menu_pais.php">Home</a></li>
-              <li><i class="fa fa-laptop"></i>Dashboard</li>
-            </ol>
-          </div>
-        </div>
-        </div>
-      </div>
-    </section>
-    <!--main content end-->
-  </section>
-  <!-- container section start -->
 
   <!-- javascripts -->
   <script src="js/jquery.js"></script>
@@ -264,6 +171,7 @@ if ($_SESSION['login_primeira']==1){
     <script src="js/morris.min.js"></script>
     <script src="js/sparklines.js"></script>
     <script src="js/charts.js"></script>
+    <script src="js/jquery.mask.js"></script>
     <script src="js/jquery.slimscroll.min.js"></script>
     <script>
       //knob
@@ -292,28 +200,11 @@ if ($_SESSION['login_primeira']==1){
         $('select.styled').customSelect();
       });
 
-      /* ---------- Map ---------- */
-      $(function() {
-        $('#map').vectorMap({
-          map: 'world_mill_en',
-          series: {
-            regions: [{
-              values: gdpData,
-              scale: ['#000', '#000'],
-              normalizeFunction: 'polynomial'
-            }]
-          },
-          backgroundColor: '#eef3f7',
-          onLabelShow: function(e, el, code) {
-            el.html(el.html() + ' (GDP - ' + gdpData[code] + ')');
-          }
-        });
-      });
-    </script>
 
 
 
 
+</script>
 </body>
 
 </html>

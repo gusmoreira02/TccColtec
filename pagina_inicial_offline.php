@@ -77,7 +77,7 @@ body{
             <ul class="dropdown-menu extended logout">
               <div class="log-arrow-up"></div>
               <li class="eborder-top">
-                <a href="login.html"><i class="icon_profile"></i> Responsavel</a>
+                <a href="login.html"><i class="icon_profile"></i> Responsável</a>
               </li>
               <li>
                 <a href="login_prof.html"><i class="icon_profile"></i> Professor</a>
